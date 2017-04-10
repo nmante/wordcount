@@ -70,7 +70,12 @@ public:
 	WordCountTupleVector getWordCounts() const { return this->mWordTuples; }
 
 	// Get count for a word
-	int getCountForWord(std::string word) const;
+	int getCountForWord(std::string word) {
+		if(this->mWordCountMap.count(word) > 0){
+			return this->mWordCountMap[word];
+		}
+		return 0;
+	}
 
 	// Print the list of word count tuples
 	void printWordCounts();
